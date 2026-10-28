@@ -7,8 +7,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
-    { label: 'The Problem', href: '#problem' },
-    { label: 'The Solution', href: '#solution' },
+    { label: 'Problem', href: '#problem' },
+    { label: 'Solution', href: '#solution' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Comms Stack', href: '#comms-stack' },
     { label: 'Objectives', href: '#objectives' },
@@ -64,14 +64,23 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        backgroundColor: 'rgba(8, 13, 26, 0.92)',
+        backgroundColor: 'rgba(8, 13, 26, 0.94)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderBottom: '1px solid var(--border)',
         transition: 'border-color var(--trans-fast), background-color var(--trans-fast)'
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px' }}>
+      <div
+        className="container"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '80px',
+          gap: '1rem'
+        }}
+      >
         {/* Brand Logo & Studio Identity */}
         <a
           href="#hero"
@@ -80,7 +89,8 @@ export default function Navbar() {
             display: 'flex',
             alignItems: 'center',
             gap: '0.85rem',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            flexShrink: 0
           }}
           aria-label="RELINK Home"
         >
@@ -106,7 +116,8 @@ export default function Navbar() {
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 marginTop: '4px',
-                fontWeight: 600
+                fontWeight: 600,
+                whiteSpace: 'nowrap'
               }}
             >
               HUMANITARIAN CONCEPT
@@ -114,13 +125,23 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Desktop Nav Links (By Experience styled) */}
+        {/* Desktop Nav Links - Single Line & Vertically Centered */}
         <nav className="desktop-nav" aria-label="Main Navigation" style={{ display: 'none' }}>
-          <ul style={{ display: 'flex', listStyle: 'none', gap: '2rem', alignItems: 'center', margin: 0, padding: 0 }}>
+          <ul
+            style={{
+              display: 'flex',
+              listStyle: 'none',
+              gap: 'clamp(0.65rem, 1.15vw, 1.35rem)',
+              alignItems: 'center',
+              margin: 0,
+              padding: 0,
+              flexWrap: 'nowrap'
+            }}
+          >
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
               return (
-                <li key={link.href}>
+                <li key={link.href} style={{ display: 'flex', alignItems: 'center' }}>
                   <a
                     href={link.href}
                     onClick={(e) => scrollTo(e, link.href)}
@@ -130,9 +151,13 @@ export default function Navbar() {
                       fontWeight: 600,
                       color: isActive ? 'var(--text-100)' : 'var(--text-400)',
                       textTransform: 'uppercase',
-                      letterSpacing: '0.06em',
+                      letterSpacing: '0.05em',
+                      whiteSpace: 'nowrap',
                       position: 'relative',
                       padding: '0.5rem 0',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      lineHeight: 1,
                       transition: 'color var(--trans-fast)'
                     }}
                   >
@@ -158,11 +183,12 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTA */}
-        <div className="desktop-cta" style={{ display: 'none' }}>
+        <div className="desktop-cta" style={{ display: 'none', flexShrink: 0 }}>
           <a
             href="#how-it-works"
             onClick={(e) => scrollTo(e, '#how-it-works')}
             className="btn btn--primary btn--sm"
+            style={{ whiteSpace: 'nowrap' }}
           >
             See How It Works
             <ArrowRightIcon size={16} />
@@ -186,7 +212,8 @@ export default function Navbar() {
             border: '1px solid var(--border)',
             borderRadius: 'var(--radius-sm)',
             color: 'var(--text-100)',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            flexShrink: 0
           }}
         >
           {mobileMenuOpen ? <CloseIcon size={24} /> : <MenuIcon size={24} />}
@@ -204,7 +231,9 @@ export default function Navbar() {
             display: 'flex',
             flexDirection: 'column',
             gap: '1.25rem',
-            boxShadow: '0 12px 36px rgba(0,0,0,0.6)'
+            boxShadow: '0 12px 36px rgba(0,0,0,0.6)',
+            maxHeight: 'calc(100vh - 80px)',
+            overflowY: 'auto'
           }}
         >
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
@@ -250,7 +279,8 @@ export default function Navbar() {
       <style>{`
         @media (min-width: 1024px) {
           .desktop-nav {
-            display: block !important;
+            display: flex !important;
+            align-items: center;
           }
           .desktop-cta {
             display: block !important;

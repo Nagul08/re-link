@@ -26,3 +26,8 @@ dist-ssr
 # Documentation & markdown files
 docs/
 *.md
+
+# Screenshots & media
+*.png
+*.jpg
+*.jpeg
