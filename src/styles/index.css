@@ -40,21 +40,23 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Typography Headings */
+/* Typography Headings (Editorial & High-Contrast) */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   color: var(--text-100);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   font-weight: 700;
   line-height: 1.15;
 }
 
 h1 {
   font-size: var(--text-h1);
+  letter-spacing: -0.035em;
 }
 
 h2 {
   font-size: var(--text-h2);
+  letter-spacing: -0.03em;
 }
 
 h3 {
@@ -75,7 +77,7 @@ a {
 /* Accessible Focus States */
 :focus-visible {
   outline: 2px solid var(--link);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 /* Layout Container */
@@ -117,7 +119,7 @@ a {
   background-color: var(--bg-800);
 }
 
-/* Section Header Structure */
+/* Section Header Structure - Inspired by By Experience bold editorial layouts */
 .section-header {
   margin-bottom: var(--space-7);
 }
@@ -141,20 +143,42 @@ a {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: var(--link);
   margin-bottom: var(--space-3);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .section-title {
   margin-bottom: var(--space-4);
+  max-width: 24ch;
+}
+
+.section-title--wide {
+  max-width: 32ch;
 }
 
 .section-subtitle {
   font-size: var(--text-lg);
   color: var(--text-300);
   line-height: 1.6;
+}
+
+/* Bold Editorial Statement Banner */
+.statement-banner {
+  border-left: 3px solid var(--alert);
+  background: linear-gradient(90deg, rgba(255, 107, 91, 0.08) 0%, rgba(17, 27, 46, 0.4) 100%);
+  padding: 1.5rem 2rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: 3rem;
+}
+
+.statement-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  color: var(--text-100);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
 }
 
 /* Buttons */
@@ -166,7 +190,7 @@ a {
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.65rem;
   border-radius: var(--radius-md);
   cursor: pointer;
   border: 1px solid transparent;
@@ -183,7 +207,7 @@ a {
 .btn--primary:hover {
   background-color: var(--aid-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(255, 176, 32, 0.25);
+  box-shadow: 0 4px 20px rgba(255, 176, 32, 0.3);
 }
 
 .btn--secondary {
@@ -199,17 +223,17 @@ a {
 }
 
 .btn--sm {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.15rem;
   font-size: var(--text-sm);
-  min-height: 38px;
+  min-height: 40px;
 }
 
-/* Standard Card */
+/* Standard & Editorial Cards */
 .card {
   background-color: var(--bg-700);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.75rem;
   transition: transform var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-fast);
   position: relative;
   display: flex;
@@ -222,19 +246,30 @@ a {
   box-shadow: var(--link-glow);
 }
 
+.card--interactive {
+  cursor: pointer;
+}
+
+.card--active {
+  border-color: var(--link) !important;
+  box-shadow: 0 0 0 1px var(--link), var(--link-glow);
+}
+
 /* Tags & Badges */
 .tag {
   display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  padding: 0.25rem 0.625rem;
+  padding: 0.3rem 0.7rem;
   border-radius: var(--radius-full);
   background-color: var(--link-10);
   color: var(--link);
   border: 1px solid rgba(45, 212, 191, 0.25);
   font-weight: 500;
   width: fit-content;
+  letter-spacing: 0.04em;
 }
 
 .tag--concept {
@@ -251,36 +286,41 @@ a {
 
 /* Icon Box inside cards */
 .icon-box {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: var(--radius-md);
   background-color: var(--link-10);
-  border: 1px solid rgba(45, 212, 191, 0.2);
+  border: 1px solid rgba(45, 212, 191, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--link);
   margin-bottom: var(--space-4);
   flex-shrink: 0;
+  transition: background-color var(--trans-fast), border-color var(--trans-fast);
+}
+
+.card:hover .icon-box {
+  background-color: var(--link-20);
+  border-color: var(--link);
 }
 
 .icon-box--alert {
   background-color: var(--alert-10);
-  border-color: rgba(255, 107, 91, 0.2);
+  border-color: rgba(255, 107, 91, 0.25);
   color: var(--alert);
 }
 
-.icon-box--aid {
-  background-color: rgba(255, 176, 32, 0.12);
-  border-color: rgba(255, 176, 32, 0.25);
-  color: var(--aid);
+.card:hover .icon-box--alert {
+  background-color: var(--alert-20);
+  border-color: var(--alert);
 }
 
-/* Grid Layouts */
+/* Grids */
 .grid-3 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 @media (min-width: 640px) {
@@ -298,12 +338,68 @@ a {
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 @media (min-width: 768px) {
   .grid-2 {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dynamic Ticker / Marquee Band (By Experience inspired) */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-800);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  white-space: nowrap;
+  position: relative;
+  z-index: 10;
+}
+
+.ticker-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: ticker-slide 32s linear infinite;
+  will-change: transform;
+}
+
+.ticker-wrap:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-300);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.ticker-item .ticker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--link);
+  box-shadow: 0 0 8px var(--link);
+}
+
+.ticker-item .ticker-highlight {
+  color: var(--aid);
+}
+
+@keyframes ticker-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
@@ -331,6 +427,11 @@ a {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .ticker-track {
+    animation: none !important;
+    transform: none !important;
   }
 
   .reveal-item {

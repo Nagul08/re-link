@@ -11,7 +11,7 @@ export default function ImpactRoadmapSection() {
       focus:
         'Focus on a singular, high-friction use case: coordinating verified food and drinking water requests with local depot supplies inside an area experiencing disrupted connectivity.',
       deliverables: [
-        'Offline SMS & low-bandwidth web form for need logging',
+        'Offline SMS & low-bandwidth form for need logging',
         'Basic supply matching and deduplication logic',
         'Store-and-forward local sync for field volunteer nodes'
       ],
@@ -60,7 +60,7 @@ export default function ImpactRoadmapSection() {
                 padding: '0.35rem 0.85rem'
               }}
             >
-              Proposed Concept • Prototyping Roadmap
+              PROPOSED CONCEPT • PROTOTYPING ROADMAP
             </span>
           </div>
           <h2 className="section-title">A phased path to validated resilience.</h2>
@@ -69,13 +69,13 @@ export default function ImpactRoadmapSection() {
           </p>
         </div>
 
-        {/* Intended Impact Overview Box */}
+        {/* Intended Impact Overview Box (By Experience editorial style) */}
         <div
           style={{
             backgroundColor: 'var(--bg-700)',
             border: '1px solid var(--border)',
             borderRadius: 'var(--radius-lg)',
-            padding: '2rem',
+            padding: '2.5rem 2rem',
             marginBottom: '3rem',
             position: 'relative',
             overflow: 'hidden'
@@ -91,11 +91,24 @@ export default function ImpactRoadmapSection() {
               backgroundColor: 'var(--link)'
             }}
           />
+          <div
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.6875rem',
+              color: 'var(--link)',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              marginBottom: '0.5rem'
+            }}
+          >
+            // HUMANITARIAN TARGET
+          </div>
           <h3
             style={{
-              fontSize: '1.25rem',
+              fontSize: '1.4rem',
               color: 'var(--text-100)',
-              marginBottom: '0.75rem'
+              marginBottom: '0.75rem',
+              lineHeight: 1.25
             }}
           >
             Intended Humanitarian Impact
@@ -124,7 +137,8 @@ export default function ImpactRoadmapSection() {
                 border: '1px solid var(--border)',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                padding: '2rem 1.75rem'
               }}
             >
               <div>
@@ -145,7 +159,7 @@ export default function ImpactRoadmapSection() {
                       color: 'var(--link)'
                     }}
                   >
-                    {item.phase}
+                    // {item.phase}
                   </span>
                   <span
                     className="tag"
@@ -159,13 +173,13 @@ export default function ImpactRoadmapSection() {
                   </span>
                 </div>
 
-                <div className="icon-box" style={{ marginBottom: '1rem' }}>
+                <div className="icon-box" style={{ marginBottom: '1.25rem' }}>
                   {item.icon}
                 </div>
 
                 <h3
                   style={{
-                    fontSize: '1.2rem',
+                    fontSize: '1.25rem',
                     color: 'var(--text-100)',
                     marginBottom: '0.75rem',
                     lineHeight: 1.3
@@ -190,7 +204,7 @@ export default function ImpactRoadmapSection() {
               <div
                 style={{
                   borderTop: '1px solid var(--border-subtle)',
-                  paddingTop: '1rem'
+                  paddingTop: '1.25rem'
                 }}
               >
                 <div
@@ -200,7 +214,7 @@ export default function ImpactRoadmapSection() {
                     color: 'var(--text-500)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.05em',
-                    marginBottom: '0.5rem'
+                    marginBottom: '0.75rem'
                   }}
                 >
                   Key Milestones
@@ -212,7 +226,7 @@ export default function ImpactRoadmapSection() {
                     margin: 0,
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '0.5rem'
+                    gap: '0.625rem'
                   }}
                 >
                   {item.deliverables.map((d, dIdx) => (
@@ -224,7 +238,7 @@ export default function ImpactRoadmapSection() {
                         gap: '0.5rem',
                         fontSize: '0.8125rem',
                         color: 'var(--text-300)',
-                        lineHeight: 1.4
+                        lineHeight: 1.45
                       }}
                     >
                       <span
@@ -249,7 +263,7 @@ export default function ImpactRoadmapSection() {
         <div
           style={{
             marginTop: '3rem',
-            padding: '1.25rem 1.5rem',
+            padding: '1.5rem',
             borderRadius: 'var(--radius-md)',
             backgroundColor: 'rgba(255, 176, 32, 0.06)',
             border: '1px solid rgba(255, 176, 32, 0.25)',

@@ -4,25 +4,28 @@ import { SignalLossIcon, BlindspotIcon, DelayIcon } from './Icons';
 export default function ProblemSection() {
   const problems = [
     {
+      num: '01',
       icon: <SignalLossIcon size={26} />,
-      tag: 'INFRASTRUCTURE COLLAPSE',
-      title: 'Disrupted Connectivity & Communications',
+      tag: 'COMMUNICATION COLLAPSE',
+      title: 'Disrupted Infrastructure & Blackouts',
       description:
-        'When severe floods, cyclones, or landslides strike, mobile cell towers, internet backbones, and power grids fail first. Communities cannot broadcast their urgent needs, and response units are rendered blind.'
+        'When severe floods, cyclones, or landslides strike, mobile cell towers, fiber conduits, and power grids fail first. Communities cannot broadcast their urgent needs, and response units are rendered blind.'
     },
     {
+      num: '02',
       icon: <BlindspotIcon size={26} />,
       tag: 'COORDINATION GAPS',
-      title: 'Siloed Relief & Resource Duplication',
+      title: 'Siloed Relief & Duplicate Drops',
       description:
         'Government agencies, international NGOs, and grassroots volunteer groups frequently operate in disconnected information silos. Without shared visibility, multiple teams dispatch identical supplies to the same accessible locations.'
     },
     {
+      num: '03',
       icon: <DelayIcon size={26} />,
-      tag: 'LAST-MILE FAILURE',
-      title: 'Delayed Aid & Isolated Communities',
+      tag: 'LAST-MILE BOTTLENECK',
+      title: 'Delayed Aid to Isolated Pockets',
       description:
-        'Because real-time updates cannot reach field teams, food, drinking water, and essential medicines fail to reach vulnerable, hard-to-reach pockets in time—turning logistical delays into humanitarian crises.'
+        'Because real-time updates cannot reach field teams, food, drinking water, and essential medicines fail to reach cut-off, vulnerable communities in time—turning logistical breakdowns into humanitarian crises.'
     }
   ];
 
@@ -48,7 +51,26 @@ export default function ProblemSection() {
           </p>
         </div>
 
-        {/* 3 Problem Cards Grid */}
+        {/* Editorial Statement Banner (By Experience inspired) */}
+        <div className="statement-banner">
+          <div
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.6875rem',
+              color: 'var(--alert)',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              marginBottom: '0.5rem'
+            }}
+          >
+            CRITICAL SYSTEM FAILURE
+          </div>
+          <div className="statement-text">
+            Conventional disaster coordination assumes functional cell towers and stable internet. In extreme floods and cyclones, those assumptions fail immediately.
+          </div>
+        </div>
+
+        {/* 3 Problem Cards Grid with Editorial Styling */}
         <div className="grid-3">
           {problems.map((item, index) => (
             <div
@@ -56,39 +78,68 @@ export default function ProblemSection() {
               className="card"
               style={{
                 borderColor: 'var(--border)',
-                position: 'relative'
+                backgroundColor: 'var(--bg-700)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
               }}
             >
-              <div className="icon-box icon-box--alert">{item.icon}</div>
-              <span
-                className="tag tag--alert"
-                style={{
-                  marginBottom: '1rem',
-                  fontSize: '0.6875rem'
-                }}
-              >
-                {item.tag}
-              </span>
-              <h3
-                style={{
-                  fontSize: '1.25rem',
-                  color: 'var(--text-100)',
-                  marginBottom: '0.75rem',
-                  lineHeight: 1.3
-                }}
-              >
-                {item.title}
-              </h3>
-              <p
-                style={{
-                  color: 'var(--text-300)',
-                  fontSize: '0.9375rem',
-                  lineHeight: 1.6,
-                  margin: 0
-                }}
-              >
-                {item.description}
-              </p>
+              <div>
+                {/* Top Row: Icon and Index */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginBottom: '1.25rem'
+                  }}
+                >
+                  <div className="icon-box icon-box--alert">{item.icon}</div>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.75rem',
+                      color: 'var(--alert)',
+                      fontWeight: 600,
+                      opacity: 0.85
+                    }}
+                  >
+                    // {item.num}
+                  </span>
+                </div>
+
+                <span
+                  className="tag tag--alert"
+                  style={{
+                    marginBottom: '1rem',
+                    fontSize: '0.6875rem'
+                  }}
+                >
+                  {item.tag}
+                </span>
+
+                <h3
+                  style={{
+                    fontSize: '1.25rem',
+                    color: 'var(--text-100)',
+                    marginBottom: '0.85rem',
+                    lineHeight: 1.3
+                  }}
+                >
+                  {item.title}
+                </h3>
+
+                <p
+                  style={{
+                    color: 'var(--text-300)',
+                    fontSize: '0.9375rem',
+                    lineHeight: 1.6,
+                    margin: 0
+                  }}
+                >
+                  {item.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
