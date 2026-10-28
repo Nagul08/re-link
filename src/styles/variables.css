@@ -1,68 +1,76 @@
 :root {
-  /* Surfaces & Backgrounds */
-  --bg-900: #0B1220;      /* Page background (deep navy) */
-  --bg-800: #111B2E;      /* Sections / alternating background */
-  --bg-700: #1A2740;      /* Cards surface */
-  --border: #26364F;      /* Hairlines, card borders */
-  --border-subtle: rgba(38, 54, 79, 0.6);
+  /* Surfaces & Backgrounds - By Experience Deep Midnight Palette */
+  --bg-900: #080D1A;      /* Primary deep canvas */
+  --bg-850: #0D1527;      /* Subtle gradient mid-tone */
+  --bg-800: #111C32;      /* Alternating section background */
+  --bg-750: #15223C;      /* Card elevated surface */
+  --bg-700: #1A2846;      /* Highlighted card surface */
+  
+  /* Hairline Borders & Dividers */
+  --border: #223452;      /* Structural borders */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-focus: #2DD4BF;
 
-  /* Typography Colors */
-  --text-100: #F2F5FA;    /* Headings */
-  --text-300: #B8C3D6;    /* Body */
-  --text-500: #7F8DA6;    /* Muted / captions */
+  /* High-Contrast Typography */
+  --text-100: #FFFFFF;    /* Pure crisp white for primary headlines */
+  --text-200: #E6EDF8;    /* High-contrast subheadings */
+  --text-300: #B4C2D8;    /* Readable body text */
+  --text-400: #8E9FB8;    /* Secondary notes */
+  --text-500: #6B7C96;    /* Muted captions & indices */
 
-  /* Accents */
-  --aid: #FFB020;         /* Amber: aid, signal, primary CTA */
-  --aid-dark: #E69500;    /* CTA hover */
-  --link: #2DD4BF;        /* Teal: connectivity, links, nodes */
-  --link-10: rgba(45, 212, 191, 0.1);
-  --link-20: rgba(45, 212, 191, 0.2);
-  --link-glow: 0 8px 30px rgba(45, 212, 191, 0.12);
-  --alert: #FF6B5B;       /* Coral: problem / urgency highlights */
-  --alert-10: rgba(255, 107, 91, 0.1);
-  --alert-20: rgba(255, 107, 91, 0.2);
+  /* Distinctive Studio Accents */
+  --aid: #FFB020;         /* Amber: signal, priority CTA, focal warmth */
+  --aid-dark: #E69500;    /* Amber hover */
+  --aid-dim: rgba(255, 176, 32, 0.12);
+  --link: #2DD4BF;        /* Electric teal: connectivity, active nodes */
+  --link-dim: rgba(45, 212, 191, 0.1);
+  --link-glow: 0 10px 35px rgba(45, 212, 191, 0.15);
+  --alert: #FF6B5B;       /* Urgent coral: problem highlights */
+  --alert-dim: rgba(255, 107, 91, 0.12);
 
   /* Typography Stack */
-  --font-display: 'Space Grotesk', system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
-  /* Font Sizes */
+  /* Fluid Typographic Scale */
   --text-xs: 0.75rem;     /* 12px */
   --text-sm: 0.875rem;    /* 14px */
   --text-base: 1rem;      /* 16px */
   --text-lg: 1.125rem;    /* 18px */
   --text-xl: 1.25rem;     /* 20px */
-  --text-2xl: clamp(1.5rem, 3vw, 2rem);
-  --text-h2: clamp(1.75rem, 4vw, 2.75rem);
-  --text-h1: clamp(2.5rem, 6vw, 4.5rem);
+  --text-2xl: clamp(1.5rem, 2.5vw, 2.25rem);
+  --text-h2: clamp(2rem, 4.5vw, 3.25rem);
+  --text-h1: clamp(2.75rem, 6.5vw, 5rem);
 
-  /* Spacing Scale (8px base) */
-  --space-1: 0.25rem;  /* 4px */
-  --space-2: 0.5rem;   /* 8px */
-  --space-3: 0.75rem;  /* 12px */
-  --space-4: 1rem;     /* 16px */
-  --space-5: 1.5rem;   /* 24px */
-  --space-6: 2rem;     /* 32px */
-  --space-7: 3rem;     /* 48px */
-  --space-8: 4rem;     /* 64px */
-  --space-9: 6rem;     /* 96px */
-  --space-10: 8rem;    /* 128px */
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6.5rem;
+  --space-10: 9rem;
 
-  /* Section Padding */
-  --section-pad-y-mobile: 5rem;
-  --section-pad-y-desktop: 7rem;
+  /* Layout Widths */
+  --container-max: 1240px;
   --container-pad-mobile: 1.25rem;
-  --container-pad-desktop: 2rem;
-  --container-max: 1200px;
+  --container-pad-desktop: 2.5rem;
+  --section-pad-y-mobile: 5.5rem;
+  --section-pad-y-desktop: 8rem;
 
   /* Radii */
+  --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
   /* Transitions */
-  --trans-fast: 200ms ease;
-  --trans-smooth: 500ms ease-out;
+  --trans-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-smooth: 500ms cubic-bezier(0.16, 1, 0.3, 1);
 }

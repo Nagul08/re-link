@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LogoMark, MenuIcon, CloseIcon } from './Icons';
+import { LogoMark, MenuIcon, CloseIcon, ArrowRightIcon } from './Icons';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,7 +36,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && mobileMenuOpen) {
@@ -65,35 +64,35 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        backgroundColor: 'rgba(11, 18, 32, 0.88)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
+        backgroundColor: 'rgba(8, 13, 26, 0.92)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
         borderBottom: '1px solid var(--border)',
         transition: 'border-color var(--trans-fast), background-color var(--trans-fast)'
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
-        {/* Brand Logo */}
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px' }}>
+        {/* Brand Logo & Studio Identity */}
         <a
           href="#hero"
           onClick={(e) => scrollTo(e, '#hero')}
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.75rem',
+            gap: '0.85rem',
             textDecoration: 'none'
           }}
           aria-label="RELINK Home"
         >
-          <LogoMark size={32} />
+          <LogoMark size={34} />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 700,
-                fontSize: '1.25rem',
+                fontSize: '1.35rem',
                 color: 'var(--text-100)',
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.03em',
                 lineHeight: 1
               }}
             >
@@ -104,19 +103,20 @@ export default function Navbar() {
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.625rem',
                 color: 'var(--aid)',
-                letterSpacing: '0.08em',
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
-                marginTop: '3px'
+                marginTop: '4px',
+                fontWeight: 600
               }}
             >
-              Concept Proposal
+              HUMANITARIAN CONCEPT
             </span>
           </div>
         </a>
 
-        {/* Desktop Nav Links */}
+        {/* Desktop Nav Links (By Experience styled) */}
         <nav className="desktop-nav" aria-label="Main Navigation" style={{ display: 'none' }}>
-          <ul style={{ display: 'flex', listStyle: 'none', gap: '1.75rem', alignItems: 'center', margin: 0, padding: 0 }}>
+          <ul style={{ display: 'flex', listStyle: 'none', gap: '2rem', alignItems: 'center', margin: 0, padding: 0 }}>
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
               return (
@@ -126,9 +126,11 @@ export default function Navbar() {
                     onClick={(e) => scrollTo(e, link.href)}
                     style={{
                       fontFamily: 'var(--font-body)',
-                      fontSize: '0.875rem',
-                      fontWeight: 500,
-                      color: isActive ? 'var(--link)' : 'var(--text-300)',
+                      fontSize: '0.8125rem',
+                      fontWeight: 600,
+                      color: isActive ? 'var(--text-100)' : 'var(--text-400)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.06em',
                       position: 'relative',
                       padding: '0.5rem 0',
                       transition: 'color var(--trans-fast)'
@@ -163,10 +165,11 @@ export default function Navbar() {
             className="btn btn--primary btn--sm"
           >
             See How It Works
+            <ArrowRightIcon size={16} />
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
+        {/* Mobile Toggle */}
         <button
           type="button"
           className="mobile-toggle"
@@ -177,8 +180,8 @@ export default function Navbar() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: '44px',
-            height: '44px',
+            width: '46px',
+            height: '46px',
             background: 'transparent',
             border: '1px solid var(--border)',
             borderRadius: 'var(--radius-sm)',
@@ -186,25 +189,25 @@ export default function Navbar() {
             cursor: 'pointer'
           }}
         >
-          {mobileMenuOpen ? <CloseIcon size={22} /> : <MenuIcon size={22} />}
+          {mobileMenuOpen ? <CloseIcon size={24} /> : <MenuIcon size={24} />}
         </button>
       </div>
 
-      {/* Mobile Slide-down Menu */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div
           className="mobile-menu-drawer"
           style={{
             backgroundColor: 'var(--bg-800)',
             borderBottom: '1px solid var(--border)',
-            padding: '1.5rem',
+            padding: '1.75rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
+            gap: '1.25rem',
+            boxShadow: '0 12px 36px rgba(0,0,0,0.6)'
           }}
         >
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
               return (
@@ -217,7 +220,9 @@ export default function Navbar() {
                       padding: '0.625rem 0',
                       fontFamily: 'var(--font-body)',
                       fontSize: '1rem',
-                      fontWeight: 500,
+                      fontWeight: 600,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em',
                       color: isActive ? 'var(--link)' : 'var(--text-100)',
                       borderBottom: '1px solid var(--border-subtle)'
                     }}
@@ -242,7 +247,6 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Desktop Responsive CSS override */}
       <style>{`
         @media (min-width: 1024px) {
           .desktop-nav {

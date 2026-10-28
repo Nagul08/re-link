@@ -15,29 +15,63 @@ export default function Footer() {
       style={{
         backgroundColor: 'var(--bg-900)',
         borderTop: '1px solid var(--border)',
-        paddingTop: '4rem',
-        paddingBottom: '3rem',
+        paddingTop: '5rem',
+        paddingBottom: '3.5rem',
         position: 'relative'
       }}
     >
       <div className="container">
+        {/* By Experience Inspired Big Bold Statement */}
+        <div
+          style={{
+            paddingBottom: '3.5rem',
+            marginBottom: '3.5rem',
+            borderBottom: '1px solid var(--border)'
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.75rem',
+              color: 'var(--link)',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              marginBottom: '1rem'
+            }}
+          >
+            // RESILIENT ARCHITECTURE FOR REAL-WORLD DISASTERS
+          </div>
+          <h2
+            style={{
+              fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
+              color: 'var(--text-100)',
+              lineHeight: 1.15,
+              maxWidth: '22ch',
+              letterSpacing: '-0.03em'
+            }}
+          >
+            MAKING LIGHT WORK OF WEIGHTY LOGISTICS.
+          </h2>
+        </div>
+
+        {/* 4-Column Directory Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '2.5rem',
-            paddingBottom: '3rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '3rem',
+            paddingBottom: '3.5rem',
             borderBottom: '1px solid var(--border-subtle)'
           }}
         >
-          {/* Brand & Mission Column */}
+          {/* Col 1: Identity */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-              <LogoMark size={28} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.25rem' }}>
+              <LogoMark size={32} />
               <span
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '1.25rem',
+                  fontSize: '1.35rem',
                   fontWeight: 700,
                   color: 'var(--text-100)',
                   letterSpacing: '-0.02em'
@@ -49,23 +83,20 @@ export default function Footer() {
             <p
               style={{
                 fontSize: '0.875rem',
-                color: 'var(--text-500)',
-                lineHeight: 1.6,
-                maxWidth: '40ch',
-                marginBottom: '1rem'
+                color: 'var(--text-400)',
+                lineHeight: 1.65,
+                maxWidth: '38ch',
+                marginBottom: '1.25rem'
               }}
             >
               A proposed humanitarian-tech concept exploring resilient disaster coordination and multi-layer communication when networks fail.
             </p>
-            <span
-              className="tag tag--concept"
-              style={{ fontSize: '0.6875rem' }}
-            >
+            <span className="tag tag--concept" style={{ fontSize: '0.6875rem' }}>
               Open Concept Proposal
             </span>
           </div>
 
-          {/* Architecture Links */}
+          {/* Col 2: Navigation */}
           <div>
             <h4
               style={{
@@ -73,8 +104,8 @@ export default function Footer() {
                 fontSize: '0.75rem',
                 color: 'var(--link)',
                 textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                marginBottom: '1rem'
+                letterSpacing: '0.12em',
+                marginBottom: '1.25rem'
               }}
             >
               Architecture & Concept
@@ -86,7 +117,7 @@ export default function Footer() {
                 margin: 0,
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.625rem'
+                gap: '0.75rem'
               }}
             >
               <li>
@@ -94,7 +125,7 @@ export default function Footer() {
                   href="#problem"
                   onClick={(e) => scrollTo(e, 'problem')}
                   style={{ fontSize: '0.875rem', color: 'var(--text-300)' }}
-                  onMouseEnter={(e) => (e.target.style.color = 'var(--link)')}
+                  onMouseEnter={(e) => (e.target.style.color = 'var(--text-100)')}
                   onMouseLeave={(e) => (e.target.style.color = 'var(--text-300)')}
                 >
                   The Problem
@@ -105,7 +136,7 @@ export default function Footer() {
                   href="#solution"
                   onClick={(e) => scrollTo(e, 'solution')}
                   style={{ fontSize: '0.875rem', color: 'var(--text-300)' }}
-                  onMouseEnter={(e) => (e.target.style.color = 'var(--link)')}
+                  onMouseEnter={(e) => (e.target.style.color = 'var(--text-100)')}
                   onMouseLeave={(e) => (e.target.style.color = 'var(--text-300)')}
                 >
                   The Solution
@@ -116,7 +147,7 @@ export default function Footer() {
                   href="#how-it-works"
                   onClick={(e) => scrollTo(e, 'how-it-works')}
                   style={{ fontSize: '0.875rem', color: 'var(--text-300)' }}
-                  onMouseEnter={(e) => (e.target.style.color = 'var(--link)')}
+                  onMouseEnter={(e) => (e.target.style.color = 'var(--text-100)')}
                   onMouseLeave={(e) => (e.target.style.color = 'var(--text-300)')}
                 >
                   How It Works
@@ -127,7 +158,7 @@ export default function Footer() {
                   href="#comms-stack"
                   onClick={(e) => scrollTo(e, 'comms-stack')}
                   style={{ fontSize: '0.875rem', color: 'var(--text-300)' }}
-                  onMouseEnter={(e) => (e.target.style.color = 'var(--link)')}
+                  onMouseEnter={(e) => (e.target.style.color = 'var(--text-100)')}
                   onMouseLeave={(e) => (e.target.style.color = 'var(--text-300)')}
                 >
                   Resilient Comms Stack
@@ -136,7 +167,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Stakeholders & Roadmap */}
+          {/* Col 3: Ecosystem */}
           <div>
             <h4
               style={{
@@ -144,11 +175,11 @@ export default function Footer() {
                 fontSize: '0.75rem',
                 color: 'var(--link)',
                 textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                marginBottom: '1rem'
+                letterSpacing: '0.12em',
+                marginBottom: '1.25rem'
               }}
             >
-              Stakeholders & Plan
+              Ecosystem & Roadmap
             </h4>
             <ul
               style={{
@@ -157,7 +188,7 @@ export default function Footer() {
                 margin: 0,
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.625rem'
+                gap: '0.75rem'
               }}
             >
               <li>
@@ -165,7 +196,7 @@ export default function Footer() {
                   href="#objectives"
                   onClick={(e) => scrollTo(e, 'objectives')}
                   style={{ fontSize: '0.875rem', color: 'var(--text-300)' }}
-                  onMouseEnter={(e) => (e.target.style.color = 'var(--link)')}
+                  onMouseEnter={(e) => (e.target.style.color = 'var(--text-100)')}
                   onMouseLeave={(e) => (e.target.style.color = 'var(--text-300)')}
                 >
                   Core Objectives
@@ -176,7 +207,7 @@ export default function Footer() {
                   href="#who-its-for"
                   onClick={(e) => scrollTo(e, 'who-its-for')}
                   style={{ fontSize: '0.875rem', color: 'var(--text-300)' }}
-                  onMouseEnter={(e) => (e.target.style.color = 'var(--link)')}
+                  onMouseEnter={(e) => (e.target.style.color = 'var(--text-100)')}
                   onMouseLeave={(e) => (e.target.style.color = 'var(--text-300)')}
                 >
                   Who It's For
@@ -187,7 +218,7 @@ export default function Footer() {
                   href="#roadmap"
                   onClick={(e) => scrollTo(e, 'roadmap')}
                   style={{ fontSize: '0.875rem', color: 'var(--text-300)' }}
-                  onMouseEnter={(e) => (e.target.style.color = 'var(--link)')}
+                  onMouseEnter={(e) => (e.target.style.color = 'var(--text-100)')}
                   onMouseLeave={(e) => (e.target.style.color = 'var(--text-300)')}
                 >
                   Intended Impact & Roadmap
@@ -196,7 +227,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact / Inquiries Placeholder */}
+          {/* Col 4: Contact Placeholder */}
           <div>
             <h4
               style={{
@@ -204,18 +235,18 @@ export default function Footer() {
                 fontSize: '0.75rem',
                 color: 'var(--aid)',
                 textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                marginBottom: '1rem'
+                letterSpacing: '0.12em',
+                marginBottom: '1.25rem'
               }}
             >
-              Collaboration & Contact
+              Inquiries & Pilots
             </h4>
             <p
               style={{
                 fontSize: '0.875rem',
-                color: 'var(--text-500)',
+                color: 'var(--text-400)',
                 lineHeight: 1.6,
-                marginBottom: '0.75rem'
+                marginBottom: '1rem'
               }}
             >
               For inquiries regarding concept prototyping, research partnerships, or disaster-management pilot integration:
@@ -224,9 +255,9 @@ export default function Footer() {
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.8125rem',
-                color: 'var(--text-300)',
+                color: 'var(--text-100)',
                 backgroundColor: 'var(--bg-800)',
-                padding: '0.5rem 0.75rem',
+                padding: '0.625rem 0.85rem',
                 borderRadius: 'var(--radius-sm)',
                 border: '1px solid var(--border)',
                 width: 'fit-content'
@@ -237,19 +268,19 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Accessibility */}
+        {/* Bottom Credits & Back to Top */}
         <div
           style={{
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '1rem',
-            paddingTop: '2rem'
+            gap: '1.5rem',
+            paddingTop: '2.5rem'
           }}
         >
           <div style={{ fontSize: '0.8125rem', color: 'var(--text-500)' }}>
-            © {new Date().getFullYear()} RELINK. Designed for humanitarian resilience. Fully accessible (WCAG AA).
+            © {new Date().getFullYear()} RELINK. Designed for humanitarian resilience. Fully accessible (WCAG AA compliant).
           </div>
 
           <a
@@ -261,7 +292,9 @@ export default function Footer() {
               color: 'var(--link)',
               display: 'flex',
               alignItems: 'center',
-              gap: '0.35rem'
+              gap: '0.35rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em'
             }}
           >
             Back to Top ↑
