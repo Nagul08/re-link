@@ -64,15 +64,15 @@ export default function HowItWorksSection() {
           </p>
         </div>
 
-        {/* Desktop Process Bar */}
+        {/* Process Bar (Desktop & Tablet) */}
         <div className="process-nav-bar" style={{ marginBottom: '2.5rem' }}>
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '1rem',
-              backgroundColor: 'var(--bg-700)',
-              padding: '0.75rem',
+              gap: '0.75rem',
+              backgroundColor: 'var(--bg-750)',
+              padding: '0.625rem',
               borderRadius: 'var(--radius-lg)',
               border: '1px solid var(--border)'
             }}
@@ -94,6 +94,7 @@ export default function HowItWorksSection() {
                   textAlign: 'left',
                   transition: 'all var(--trans-fast)'
                 }}
+                aria-pressed={activeStep === i}
               >
                 <span
                   style={{
@@ -110,7 +111,10 @@ export default function HowItWorksSection() {
                     fontFamily: 'var(--font-body)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
-                    color: activeStep === i ? 'var(--text-100)' : 'var(--text-300)'
+                    color: activeStep === i ? 'var(--text-100)' : 'var(--text-400)',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
                   }}
                 >
                   {st.title}
@@ -120,11 +124,11 @@ export default function HowItWorksSection() {
           </div>
         </div>
 
-        {/* 4 Steps Grid */}
+        {/* 4 Process Cards Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
             gap: '1.75rem',
             position: 'relative',
             zIndex: 1
@@ -137,13 +141,22 @@ export default function HowItWorksSection() {
                 key={index}
                 className={`card ${isSelected ? 'card--active' : ''}`}
                 onClick={() => setActiveStep(index)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setActiveStep(index);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`Step ${step.num}: ${step.title}`}
                 style={{
-                  backgroundColor: 'var(--bg-700)',
+                  backgroundColor: isSelected ? 'var(--bg-700)' : 'var(--bg-750)',
                   border: isSelected ? '1px solid var(--link)' : '1px solid var(--border)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  padding: '2rem 1.75rem',
+                  padding: '1.75rem 1.5rem',
                   cursor: 'pointer'
                 }}
               >
@@ -154,15 +167,15 @@ export default function HowItWorksSection() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      marginBottom: '1.5rem'
+                      marginBottom: '1.25rem'
                     }}
                   >
                     <div
                       style={{
-                        width: '46px',
-                        height: '46px',
+                        width: '44px',
+                        height: '44px',
                         borderRadius: '50%',
-                        backgroundColor: isSelected ? 'var(--link-10)' : 'var(--bg-800)',
+                        backgroundColor: isSelected ? 'var(--link-dim)' : 'var(--bg-800)',
                         border: isSelected ? '2px solid var(--link)' : '2px solid var(--border)',
                         display: 'flex',
                         alignItems: 'center',
@@ -186,7 +199,7 @@ export default function HowItWorksSection() {
                     style={{
                       fontSize: '1.25rem',
                       color: 'var(--text-100)',
-                      marginBottom: '0.5rem',
+                      marginBottom: '0.35rem',
                       lineHeight: 1.3
                     }}
                   >
@@ -198,7 +211,8 @@ export default function HowItWorksSection() {
                       fontSize: '0.8125rem',
                       color: 'var(--link)',
                       fontFamily: 'var(--font-mono)',
-                      marginBottom: '1rem'
+                      marginBottom: '1rem',
+                      fontWeight: 500
                     }}
                   >
                     {step.subtitle}
@@ -226,7 +240,7 @@ export default function HowItWorksSection() {
                     gap: '0.5rem',
                     fontSize: '0.75rem',
                     fontFamily: 'var(--font-mono)',
-                    color: 'var(--text-500)'
+                    color: 'var(--text-400)'
                   }}
                 >
                   <span style={{ color: 'var(--aid)' }}>✓</span>

@@ -15,7 +15,7 @@ export default function Footer() {
       style={{
         backgroundColor: 'var(--bg-900)',
         borderTop: '1px solid var(--border)',
-        paddingTop: '5rem',
+        paddingTop: '4.5rem',
         paddingBottom: '3.5rem',
         position: 'relative'
       }}
@@ -24,7 +24,7 @@ export default function Footer() {
         {/* By Experience Inspired Big Bold Statement */}
         <div
           style={{
-            paddingBottom: '3.5rem',
+            paddingBottom: '3rem',
             marginBottom: '3.5rem',
             borderBottom: '1px solid var(--border)'
           }}
@@ -36,18 +36,20 @@ export default function Footer() {
               color: 'var(--link)',
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              marginBottom: '1rem'
+              marginBottom: '1rem',
+              fontWeight: 600
             }}
           >
             // RESILIENT ARCHITECTURE FOR REAL-WORLD DISASTERS
           </div>
           <h2
             style={{
-              fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
+              fontSize: 'clamp(1.85rem, 4.2vw, 3.5rem)',
               color: 'var(--text-100)',
               lineHeight: 1.15,
-              maxWidth: '22ch',
-              letterSpacing: '-0.03em'
+              maxWidth: '24ch',
+              letterSpacing: '-0.03em',
+              fontWeight: 700
             }}
           >
             MAKING LIGHT WORK OF WEIGHTY LOGISTICS.
@@ -58,8 +60,8 @@ export default function Footer() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '3rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+            gap: '2.5rem',
             paddingBottom: '3.5rem',
             borderBottom: '1px solid var(--border-subtle)'
           }}
@@ -105,7 +107,8 @@ export default function Footer() {
                 color: 'var(--link)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.12em',
-                marginBottom: '1.25rem'
+                marginBottom: '1.25rem',
+                fontWeight: 600
               }}
             >
               Architecture & Concept
@@ -176,7 +179,8 @@ export default function Footer() {
                 color: 'var(--link)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.12em',
-                marginBottom: '1.25rem'
+                marginBottom: '1.25rem',
+                fontWeight: 600
               }}
             >
               Ecosystem & Roadmap
@@ -236,7 +240,8 @@ export default function Footer() {
                 color: 'var(--aid)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.12em',
-                marginBottom: '1.25rem'
+                marginBottom: '1.25rem',
+                fontWeight: 600
               }}
             >
               Inquiries & Pilots
@@ -290,11 +295,13 @@ export default function Footer() {
               fontFamily: 'var(--font-mono)',
               fontSize: '0.75rem',
               color: 'var(--link)',
-              display: 'flex',
+              display: 'inline-flex',
               alignItems: 'center',
               gap: '0.35rem',
               textTransform: 'uppercase',
-              letterSpacing: '0.08em'
+              letterSpacing: '0.08em',
+              minHeight: '44px',
+              padding: '0 0.5rem'
             }}
           >
             Back to Top ↑

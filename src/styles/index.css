@@ -40,13 +40,15 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Typography Headings - By Experience Inspired Bold Architectural Scale */
+/* Typography Headings - By Experience Inspired Bold Scale & Responsive Alignment */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   color: var(--text-100);
   letter-spacing: -0.03em;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.12;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 h1 {
@@ -69,6 +71,7 @@ h3 {
 
 p {
   max-width: 65ch;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -83,31 +86,52 @@ a {
   outline-offset: 3px;
 }
 
-/* Container */
+/* Responsive Container across standard device widths */
 .container {
   width: 100%;
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--container-pad-mobile);
-  padding-right: var(--container-pad-mobile);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 480px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .container {
     padding-left: var(--container-pad-desktop);
     padding-right: var(--container-pad-desktop);
   }
 }
 
-/* Section Wrapper */
+/* Responsive Section Spacing */
 .section {
-  padding-top: var(--section-pad-y-mobile);
-  padding-bottom: var(--section-pad-y-mobile);
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
   position: relative;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+  .section {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .section {
     padding-top: var(--section-pad-y-desktop);
     padding-bottom: var(--section-pad-y-desktop);
@@ -123,9 +147,16 @@ a {
   background-image: radial-gradient(circle at 50% 0%, rgba(45, 212, 191, 0.03) 0%, transparent 60%);
 }
 
-/* Section Header - High Impact Agency Style */
+/* Section Header - Centered & Aligned */
 .section-header {
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-6);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .section-header {
+    margin-bottom: var(--space-7);
+  }
 }
 
 .section-header--center {
@@ -135,7 +166,12 @@ a {
   align-items: center;
 }
 
-.section-header--center p {
+.section-header--center .section-title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header--center .section-subtitle {
   margin-left: auto;
   margin-right: auto;
 }
@@ -155,34 +191,51 @@ a {
 
 .section-title {
   margin-bottom: var(--space-4);
-  max-width: 22ch;
+  max-width: 24ch;
+  width: 100%;
 }
 
 .section-title--wide {
   max-width: 32ch;
+  width: 100%;
 }
 
 .section-subtitle {
   font-size: var(--text-lg);
   color: var(--text-300);
   line-height: 1.65;
+  max-width: 62ch;
+  width: 100%;
 }
 
-/* By Experience Bold Editorial Pullout Banner */
+@media (max-width: 640px) {
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Editorial Statement Banner */
 .statement-banner {
   border-left: 3px solid var(--alert);
   background: linear-gradient(90deg, rgba(255, 107, 91, 0.09) 0%, rgba(17, 28, 50, 0.4) 100%);
-  padding: 1.75rem 2.25rem;
+  padding: 1.25rem 1.25rem;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
   border-top: 1px solid rgba(255, 107, 91, 0.15);
   border-right: 1px solid rgba(255, 107, 91, 0.15);
   border-bottom: 1px solid rgba(255, 107, 91, 0.15);
 }
 
+@media (min-width: 768px) {
+  .statement-banner {
+    padding: 1.75rem 2.25rem;
+    margin-bottom: 3.5rem;
+  }
+}
+
 .statement-text {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.7vw, 1.75rem);
+  font-size: clamp(1.15rem, 2.5vw, 1.75rem);
   color: var(--text-100);
   line-height: 1.35;
   letter-spacing: -0.025em;
@@ -198,14 +251,22 @@ a {
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 600;
-  padding: 0.85rem 1.85rem;
+  padding: 0.85rem 1.75rem;
   border-radius: var(--radius-md);
   cursor: pointer;
   border: 1px solid transparent;
   transition: transform var(--trans-fast), background-color var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-fast);
-  min-height: 50px;
+  min-height: 48px;
   touch-action: manipulation;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+  }
 }
 
 .btn--primary {
@@ -237,16 +298,35 @@ a {
   min-height: 40px;
 }
 
-/* High-End Agency Cards */
+@media (max-width: 480px) {
+  .btn--sm {
+    width: auto;
+  }
+}
+
+/* Cards & Responsive Padding */
 .card {
   background-color: var(--bg-750);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 1.5rem 1.25rem;
   transition: transform var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-fast), background-color var(--trans-fast);
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 2rem 1.75rem;
+  }
 }
 
 .card:hover {
@@ -273,7 +353,7 @@ a {
   gap: 0.35rem;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  padding: 0.35rem 0.75rem;
+  padding: 0.3rem 0.65rem;
   border-radius: var(--radius-full);
   background-color: var(--link-dim);
   color: var(--link);
@@ -298,8 +378,8 @@ a {
 
 /* Icon Box inside cards */
 .icon-box {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: var(--radius-md);
   background-color: var(--link-dim);
   border: 1px solid rgba(45, 212, 191, 0.25);
@@ -310,6 +390,13 @@ a {
   margin-bottom: var(--space-4);
   flex-shrink: 0;
   transition: background-color var(--trans-fast), border-color var(--trans-fast);
+}
+
+@media (min-width: 768px) {
+  .icon-box {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 .card:hover .icon-box {
@@ -328,34 +415,39 @@ a {
   border-color: var(--alert);
 }
 
-/* Grids */
+/* Robust Responsive Grid Classes */
 .grid-3 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
 @media (min-width: 640px) {
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
   }
 }
 
 @media (min-width: 1024px) {
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
 }
 
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
 @media (min-width: 768px) {
   .grid-2 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 

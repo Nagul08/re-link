@@ -19,12 +19,12 @@ export default function Hero() {
         className="hero-section"
         style={{
           position: 'relative',
-          minHeight: 'calc(100vh - 72px)',
+          minHeight: 'calc(100vh - 80px)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          paddingTop: '5rem',
-          paddingBottom: '4rem',
+          paddingTop: '4.5rem',
+          paddingBottom: '3.5rem',
           overflow: 'hidden',
           backgroundColor: 'var(--bg-900)'
         }}
@@ -33,9 +33,17 @@ export default function Hero() {
         <MeshCanvas />
 
         <div className="container" style={{ position: 'relative', zIndex: 1, margin: 'auto 0' }}>
-          <div style={{ maxWidth: '860px' }}>
+          <div style={{ maxWidth: '860px', width: '100%' }}>
             {/* Concept Status Indicator */}
-            <div style={{ marginBottom: '1.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <div
+              style={{
+                marginBottom: '1.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                flexWrap: 'wrap'
+              }}
+            >
               <span
                 className="tag tag--concept"
                 style={{
@@ -59,7 +67,7 @@ export default function Hero() {
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.75rem',
                   color: 'var(--text-500)',
-                  letterSpacing: '0.05em'
+                  letterSpacing: '0.06em'
                 }}
               >
                 // OFFLINE-TOLERANT ARCHITECTURE
@@ -69,11 +77,11 @@ export default function Hero() {
             {/* High-impact Bold Headline */}
             <h1
               style={{
-                fontSize: 'clamp(2.75rem, 6vw, 4.5rem)',
-                lineHeight: 1.08,
+                fontSize: 'clamp(2.15rem, 5.5vw, 4.5rem)',
+                lineHeight: 1.1,
                 marginBottom: '1.5rem',
                 color: 'var(--text-100)',
-                letterSpacing: '-0.03em',
+                letterSpacing: '-0.035em',
                 fontWeight: 700
               }}
             >
@@ -83,9 +91,9 @@ export default function Hero() {
             {/* Editorial Lead Paragraph */}
             <p
               style={{
-                fontSize: 'clamp(1.125rem, 2.2vw, 1.35rem)',
+                fontSize: 'clamp(1.05rem, 2vw, 1.3rem)',
                 color: 'var(--text-300)',
-                lineHeight: 1.6,
+                lineHeight: 1.65,
                 marginBottom: '2.5rem',
                 maxWidth: '64ch'
               }}
@@ -95,12 +103,13 @@ export default function Hero() {
 
             {/* CTAs */}
             <div
+              className="hero-cta-group"
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: '1rem',
                 alignItems: 'center',
-                marginBottom: '3.5rem'
+                marginBottom: '3rem'
               }}
             >
               <a
@@ -125,7 +134,7 @@ export default function Hero() {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
                 gap: '1.5rem',
                 paddingTop: '2rem',
                 borderTop: '1px solid var(--border)'
@@ -137,7 +146,7 @@ export default function Hero() {
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.6875rem',
                     color: 'var(--link)',
-                    marginBottom: '0.4rem',
+                    marginBottom: '0.35rem',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase'
                   }}
@@ -155,7 +164,7 @@ export default function Hero() {
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.6875rem',
                     color: 'var(--aid)',
-                    marginBottom: '0.4rem',
+                    marginBottom: '0.35rem',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase'
                   }}
@@ -173,7 +182,7 @@ export default function Hero() {
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.6875rem',
                     color: 'var(--link)',
-                    marginBottom: '0.4rem',
+                    marginBottom: '0.35rem',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase'
                   }}
@@ -198,12 +207,12 @@ export default function Hero() {
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '40px',
-              height: '40px',
+              width: '42px',
+              height: '42px',
               borderRadius: '50%',
-              color: 'var(--text-500)',
+              color: 'var(--text-400)',
               border: '1px solid var(--border)',
-              backgroundColor: 'rgba(11, 18, 32, 0.6)',
+              backgroundColor: 'rgba(8, 13, 26, 0.7)',
               backdropFilter: 'blur(8px)',
               transition: 'color var(--trans-fast), border-color var(--trans-fast)'
             }}

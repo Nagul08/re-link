@@ -100,7 +100,7 @@ export default function CommsStackSection() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
             gap: '1.5rem',
             marginTop: '2rem'
           }}
@@ -112,8 +112,17 @@ export default function CommsStackSection() {
                 key={index}
                 className={`card ${isSelected ? 'card--active' : ''}`}
                 onClick={() => setSelectedLayer(index)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedLayer(index);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`Protocol layer: ${layer.title}`}
                 style={{
-                  backgroundColor: 'var(--bg-700)',
+                  backgroundColor: isSelected ? 'var(--bg-700)' : 'var(--bg-750)',
                   border: isSelected ? '1px solid var(--link)' : '1px solid var(--border)',
                   display: 'flex',
                   flexDirection: 'column',
@@ -152,7 +161,7 @@ export default function CommsStackSection() {
                   {/* When It's Used Callout */}
                   <div
                     style={{
-                      backgroundColor: 'rgba(11, 18, 32, 0.5)',
+                      backgroundColor: 'rgba(8, 13, 26, 0.6)',
                       borderLeft: '3px solid var(--aid)',
                       padding: '0.75rem 1rem',
                       borderRadius: '0 var(--radius-sm) var(--radius-sm) 0',
@@ -167,7 +176,8 @@ export default function CommsStackSection() {
                         color: 'var(--aid)',
                         textTransform: 'uppercase',
                         letterSpacing: '0.05em',
-                        marginBottom: '0.25rem'
+                        marginBottom: '0.25rem',
+                        fontWeight: 600
                       }}
                     >
                       When It's Used
@@ -188,11 +198,11 @@ export default function CommsStackSection() {
                 {/* Technical Detail */}
                 <p
                   style={{
-                    color: 'var(--text-500)',
+                    color: 'var(--text-400)',
                     fontSize: '0.8125rem',
                     lineHeight: 1.5,
                     margin: 0,
-                    paddingTop: '0.5rem',
+                    paddingTop: '0.75rem',
                     borderTop: '1px solid var(--border-subtle)'
                   }}
                 >
@@ -203,14 +213,14 @@ export default function CommsStackSection() {
           })}
         </div>
 
-        {/* Selected Layer Operational Specifications Panel (By Experience Inspired) */}
+        {/* Selected Layer Operational Specifications Panel */}
         <div
           style={{
             marginTop: '2.5rem',
             backgroundColor: 'var(--bg-800)',
             border: '1px solid var(--border)',
             borderRadius: 'var(--radius-lg)',
-            padding: '2rem',
+            padding: '1.75rem 1.5rem',
             position: 'relative'
           }}
         >
@@ -233,7 +243,8 @@ export default function CommsStackSection() {
                   fontSize: '0.75rem',
                   color: 'var(--link)',
                   letterSpacing: '0.08em',
-                  textTransform: 'uppercase'
+                  textTransform: 'uppercase',
+                  fontWeight: 600
                 }}
               >
                 // PROTOCOL DEEP DIVE
@@ -241,12 +252,13 @@ export default function CommsStackSection() {
               <h4
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '1.35rem',
+                  fontSize: 'clamp(1.15rem, 2.5vw, 1.45rem)',
                   color: 'var(--text-100)',
-                  marginTop: '0.25rem'
+                  marginTop: '0.25rem',
+                  fontWeight: 700
                 }}
               >
-                {active.title} — Technical Operational Envelope
+                {active.title} — Operational Specifications
               </h4>
             </div>
 
@@ -258,7 +270,7 @@ export default function CommsStackSection() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 190px), 1fr))',
               gap: '1.5rem'
             }}
           >
@@ -269,7 +281,8 @@ export default function CommsStackSection() {
                   fontSize: '0.6875rem',
                   color: 'var(--text-500)',
                   textTransform: 'uppercase',
-                  marginBottom: '0.35rem'
+                  marginBottom: '0.35rem',
+                  letterSpacing: '0.05em'
                 }}
               >
                 Operational Bandwidth
@@ -286,7 +299,8 @@ export default function CommsStackSection() {
                   fontSize: '0.6875rem',
                   color: 'var(--text-500)',
                   textTransform: 'uppercase',
-                  marginBottom: '0.35rem'
+                  marginBottom: '0.35rem',
+                  letterSpacing: '0.05em'
                 }}
               >
                 Effective Range
@@ -303,7 +317,8 @@ export default function CommsStackSection() {
                   fontSize: '0.6875rem',
                   color: 'var(--text-500)',
                   textTransform: 'uppercase',
-                  marginBottom: '0.35rem'
+                  marginBottom: '0.35rem',
+                  letterSpacing: '0.05em'
                 }}
               >
                 Power / Hardware Profile
@@ -320,7 +335,8 @@ export default function CommsStackSection() {
                   fontSize: '0.6875rem',
                   color: 'var(--text-500)',
                   textTransform: 'uppercase',
-                  marginBottom: '0.35rem'
+                  marginBottom: '0.35rem',
+                  letterSpacing: '0.05em'
                 }}
               >
                 Primary Disaster Role

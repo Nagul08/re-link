@@ -34,7 +34,7 @@ export default function ImpactRoadmapSection() {
     {
       phase: 'Phase 03',
       status: 'Concept Expansion',
-      statusColor: 'var(--text-300)',
+      statusColor: 'var(--text-400)',
       title: 'Multi-Agency Interoperability & Scaling',
       focus:
         'Expand coordination architecture to support medical supplies, emergency evacuations, and cross-organization dashboards for civil authorities and NGOs.',
@@ -69,13 +69,13 @@ export default function ImpactRoadmapSection() {
           </p>
         </div>
 
-        {/* Intended Impact Overview Box (By Experience editorial style) */}
+        {/* Intended Impact Overview Box */}
         <div
           style={{
-            backgroundColor: 'var(--bg-700)',
+            backgroundColor: 'var(--bg-750)',
             border: '1px solid var(--border)',
             borderRadius: 'var(--radius-lg)',
-            padding: '2.5rem 2rem',
+            padding: '2rem 1.5rem',
             marginBottom: '3rem',
             position: 'relative',
             overflow: 'hidden'
@@ -98,14 +98,15 @@ export default function ImpactRoadmapSection() {
               color: 'var(--link)',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              marginBottom: '0.5rem'
+              marginBottom: '0.5rem',
+              fontWeight: 600
             }}
           >
             // HUMANITARIAN TARGET
           </div>
           <h3
             style={{
-              fontSize: '1.4rem',
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.45rem)',
               color: 'var(--text-100)',
               marginBottom: '0.75rem',
               lineHeight: 1.25
@@ -116,7 +117,7 @@ export default function ImpactRoadmapSection() {
           <p
             style={{
               color: 'var(--text-300)',
-              fontSize: '1rem',
+              fontSize: '0.9625rem',
               lineHeight: 1.7,
               maxWidth: '85ch',
               margin: 0
@@ -133,12 +134,11 @@ export default function ImpactRoadmapSection() {
               key={index}
               className="card"
               style={{
-                backgroundColor: 'var(--bg-700)',
+                backgroundColor: 'var(--bg-750)',
                 border: '1px solid var(--border)',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
-                padding: '2rem 1.75rem'
+                justifyContent: 'space-between'
               }}
             >
               <div>
